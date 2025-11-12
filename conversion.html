@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .navbar a{
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #7d9ead;
+        }
+
+        .content {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .card button {
+            background-color: #345063;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #7d9ead;
+        }
+
+        .converter {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        .converter h2 {
+            margin-bottom: 20px;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4c90af;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7d9ead;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="conversion.html">Converter</a>
+            <a href="calculato.html">Income Tax Calculator</a>
+            <a href="looping.html">Looping</a>
+            <a href="payroll.html">Payroll</a>
+        </div>
+
+    <div class="converter">
+        <h2>Unit Converter</h2>
+
+        <label for="conversionType">Select Conversion:</label>
+        <select id="conversionType">
+            <option value="cToF">Celsius → Fahrenheit</option>
+            <option value="fToC">Fahrenheit → Celsius</option>
+            <option value="mToF">Meters → Feet</option>
+            <option value="fToM">Feet → Meters</option>
+        </select>
+
+        <input type="number" id="inputValue" placeholder="Enter value">
+
+        <button id="convertBtn">Convert</button>
+
+        <p id="result"></p>
+
+        <div class="card">
+            <button onclick="window.location.href='index.html'">Home</button>
+        </div>
+    </div>
+
+    
+
+    <script>
+        document.getElementById("convertBtn").addEventListener("click", function() {
+            var type = document.getElementById("conversionType").value;
+            var input = parseFloat(document.getElementById("inputValue").value);
+            var resultText = "";
+
+            if (isNaN(input)) {
+                document.getElementById("result").innerText = "Please enter a valid number!";
+                return;
+            }
+
+            switch(type) {
+                case "cToF":
+                    resultText = input + "°C = " + ((input * 9/5) + 32).toFixed(2) + "°F";
+                    break;
+                case "fToC":
+                    resultText = input + "°F = " + ((input - 32) * 5/9).toFixed(2) + "°C";
+                    break;
+                case "mToF":
+                    resultText = input + " m = " + (input * 3.28084).toFixed(2) + " ft";
+                    break;
+                case "fToM":
+                    resultText = input + " ft = " + (input / 3.28084).toFixed(2) + " m";
+                    break;
+            }
+
+            document.getElementById("result").innerText = resultText;
+        });
+    </script>
+
+</body>
+</html>

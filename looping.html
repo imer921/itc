@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Looping Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .navbar a{
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #7d9ead;
+        }
+
+        .content {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .card button {
+            background-color: #345063;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background-color: #7d9ead;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4c90af;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7d9ead;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="conversion.html">Converter</a>
+            <a href="calculato.html">Income Tax Calculator</a>
+            <a href="looping.html">Looping</a>
+            <a href="payroll.html">Payroll</a>
+        </div>
+    <div class="container">
+        <h2>Looping Programs</h2>
+
+        <!-- 1. Factorial (While Loop) -->
+        <div class="section">
+            <label for="factInput">1️Factorial (While Loop)</label>
+            <input type="number" id="factInput" placeholder="Enter n">
+            <button onclick="calculateFactorial()">Calculate Factorial</button>
+            <p class="result" id="factResult"></p>
+        </div>
+
+        <!-- 2. Sum (Do While Loop) -->
+        <div class="section">
+            <label for="sumInput">2️sum of First n Numbers (Do While Loop)</label>
+            <input type="number" id="sumInput" placeholder="Enter n">
+            <button onclick="calculateSum()">Calculate Sum</button>
+            <p class="result" id="sumResult"></p>
+        </div>
+
+        <!-- 3. Average (For Loop) -->
+        <div class="section">
+            <label for="avgInput">3️Average of First n Numbers (For Loop)</label>
+            <input type="number" id="avgInput" placeholder="Enter n">
+            <button onclick="calculateAverage()">Calculate Average</button>
+            <p class="result" id="avgResult"></p>
+        </div>
+        <div class="card">
+            <button onclick="window.location.href='index.html'">Home</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Factorial using While Loop
+        function calculateFactorial() {
+            let n = parseInt(document.getElementById("factInput").value);
+            let result = 1;
+            let i = 1;
+
+            if (isNaN(n) || n < 0) {
+                document.getElementById("factResult").innerText = "Please enter a valid positive number!";
+                return;
+            }
+
+            while (i <= n) {
+                result *= i;
+                i++;
+            }
+
+            document.getElementById("factResult").innerText = "Factorial of " + n + " = " + result;
+        }
+
+        // 2. Sum using Do While Loop
+        function calculateSum() {
+            let n = parseInt(document.getElementById("sumInput").value);
+            let sum = 0;
+            let i = 1;
+
+            if (isNaN(n) || n < 1) {
+                document.getElementById("sumResult").innerText = "Please enter a number greater than 0!";
+                return;
+            }
+
+            do {
+                sum += i;
+                i++;
+            } while (i <= n);
+
+            document.getElementById("sumResult").innerText = "Sum of first " + n + " numbers = " + sum;
+        }
+
+        // 3. Average using For Loop
+        function calculateAverage() {
+            let n = parseInt(document.getElementById("avgInput").value);
+            let sum = 0;
+
+            if (isNaN(n) || n < 1) {
+                document.getElementById("avgResult").innerText = "Please enter a number greater than 0!";
+                return;
+            }
+
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+
+            let avg = sum / n;
+            document.getElementById("avgResult").innerText = "Average of first " + n + " numbers = " + avg.toFixed(2);
+        }
+    </script>
+</body>
+</html>
