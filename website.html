@@ -1,0 +1,217 @@
+<!doctype html>
+
+<html lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital scale=1" />
+    <title>Website - Villamor</title>
+    <meta name="description" content="Demo site" />
+
+     <style>
+        body {
+            overflow: hidden;
+        }   
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+            color: #333;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .navbar a{
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #7d9ead;
+        }
+
+        .content {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #628daa;
+            color: white;
+            text-align: left;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            margin-top: 30px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: -40px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .dropdown-btn {
+            background-color: #345063;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #36577c;
+        }
+
+        .dropdown-content {
+            visibility: hidden;               /* invisible but still occupies space */
+            opacity: 0;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            top: 80%;                      
+            left: 0;
+            width: 100%;
+            transform: translateY(-10px);
+            transition: all 0.25s ease;
+            z-index: 10;
+            
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .card:hover .dropdown-content {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #36577c;
+            border-bottom: 2px solid #a2fcff;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: square;
+            padding-left: 20px;
+        }
+
+        a {
+            color: #4c7aaf;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        body {
+            background-image: url('image.png');
+      
+            background-size: cover;      
+            background-repeat: no-repeat; 
+            background-position: center;
+            
+      
+            background-attachment: fixed;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>test</h1>
+        <p>test</p>
+    </header>
+
+    <main>
+        <div class="navbar">
+            <a href="website.html">HOME</a>
+            <a href="conversion.html">Converter</a>
+            <a href="calculato.html">Income Tax Calculator</a>
+            <a href="looping.html">Looping</a>
+            <a href="payroll.html">Payroll</a>
+        </div>
+        <div class="card">
+            <h2>About the site</h2>
+            <p>This is a website containing compiled projects</p>
+        </div>
+
+        <div class="card">
+            <h2>Projects</h2>
+
+
+        <div id="dropdownMenu" class="dropdown-content">
+            <ul>
+                <p>Select a project:</p>
+                <a href="conversion.html">Converter</a>
+                <a href="calculato.html">Income Tax Calculator</a>
+                <a href="looping.html">Looping</a>
+                <a href="payroll.html">Payroll</a>
+            </ul>
+        </div>
+        </div>
+            
+    </main>
+
+</body>
+</html>
